@@ -1,5 +1,4 @@
 OtakuVerse – Catálogo de Animes
-🎯 Descrição do Projeto
 
 OtakuVerse é uma aplicação web de catálogo de animes que permite aos usuários explorar e descobrir animes e suas plataformas de exibição.
 
