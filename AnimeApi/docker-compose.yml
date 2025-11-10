@@ -1,6 +1,0 @@
-services:
-  animeapi:
-    image: ${DOCKER_REGISTRY-}animeapi
-    build:
-      context: .
-      dockerfile: AnimeApi/Dockerfile
