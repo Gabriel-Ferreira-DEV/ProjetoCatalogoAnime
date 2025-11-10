@@ -12,7 +12,7 @@ export function Banner({ imagem, alt = "Banner", titulo, subtitulo }: BannerProp
       <img
         src={imagem}
         alt={alt}
-        className="w-full h-[800px] object-cover rounded-lg shadow-md"
+        className="w-full h-[600px] object-cover rounded-lg shadow-md"
         onError={(e) => {
           const target = e.currentTarget as HTMLImageElement;
           target.src = "/Banner/placeholder.jpg";

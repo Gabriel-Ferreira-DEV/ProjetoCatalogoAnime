@@ -7,20 +7,18 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy =>
         {
             policy
-                .WithOrigins("http://localhost:3000", "http://front-catalogo-anime") 
+                .WithOrigins("http://localhost:3000", "http://front-catalogo-anime")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
 });
-
-
-
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

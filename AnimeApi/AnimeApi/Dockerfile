@@ -1,28 +1,17 @@
-# Etapa base (runtime)
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-WORKDIR /app
-EXPOSE 8080
-
 # Etapa de build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
 # Copia o csproj e restaura dependências
-COPY ["AnimeApi.csproj", "./"]
-RUN dotnet restore "AnimeApi.csproj"
+COPY AnimeApi.csproj ./
+RUN dotnet restore
 
-# Copia o restante do código e compila
+# Copia todo o restante do código
 COPY . .
-RUN dotnet build "AnimeApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build -c Release -o /app/build /p:UseAppHost=false
 
 # Publica a aplicação
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "AnimeApi.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
-
-# Etapa final (container leve)
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /app/build ./
 ENTRYPOINT ["dotnet", "AnimeApi.dll"]
