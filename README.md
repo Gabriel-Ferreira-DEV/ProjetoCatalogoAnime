@@ -71,6 +71,7 @@ Como Rodar o Projeto
 Clonar o repositório
 
 git clone https://github.com/Gabriel-Ferreira-DEV/ProjetoCatalogoAnime
+
 cd ProjetoCatalogoAnime-main/ProjetoCatalogoAnime-mai (Obs.: o docker-compose.yml está nesse diretório, então é importante estar nele antes de rodar os comandos.)
 
 Subir os containers
