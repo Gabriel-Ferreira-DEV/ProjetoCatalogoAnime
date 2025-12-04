@@ -13,17 +13,23 @@ services:
       - sql_data:/var/opt/mssql
     networks:
       - mynetwork
-
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "SenhaForte123!", "-Q", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
   animeapi:
     build:
-      context: ./AnimeApi/AnimeApi
+      context: ./AnimeApi/AnimeApi # ou ./AnimeApi/AnimeApi.Api caso tenha reorganizado
       dockerfile: Dockerfile
     container_name: animeapi
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       - ConnectionStrings__DefaultConnection=Server=db;Database=AnimeDb;User Id=sa;Password=SenhaForte123!;TrustServerCertificate=True;
       - ASPNETCORE_URLS=http://+:8080
+      - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "5000:8080"
     networks:

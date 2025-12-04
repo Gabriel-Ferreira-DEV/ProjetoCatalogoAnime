@@ -1,4 +1,4 @@
-﻿using AnimeApi.Model;
+﻿using AnimeApi.Entities;
 using AutoMapper;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 

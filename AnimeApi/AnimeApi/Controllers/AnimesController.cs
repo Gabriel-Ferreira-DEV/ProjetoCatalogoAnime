@@ -1,11 +1,9 @@
-﻿using AnimeApi.Context;
-using AnimeApi.DTOs;
-using AnimeApi.Model;
+﻿using AnimeApi.DTOs;
+using AnimeApi.Entities;
 using AnimesApi.Repositories;
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace AnimeApi.Controllers
 {
@@ -27,7 +25,7 @@ namespace AnimeApi.Controllers
         {
             try
             {
-                var animes = await _unitOfWork.AnimesRepository.GetAnimes(cancellationToken);
+                var animes = await _unitOfWork.AnimesRepository.GetAnimesAsync(cancellationToken);
 
                 var animesDto = _mapper.Map<IEnumerable<AnimeDTO>>(animes);
 
@@ -45,7 +43,7 @@ namespace AnimeApi.Controllers
         {
             try
             {
-                var anime = await _unitOfWork.AnimesRepository.GetAnime(id,cancellationToken);
+                var anime = await _unitOfWork.AnimesRepository.GetAnimeAsync(id,cancellationToken);
 
                 if (anime == null)
                 {
