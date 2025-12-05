@@ -1,5 +1,8 @@
-﻿using AnimeApi.Context;
-using AnimesApi.Repositories;
+﻿
+
+using AnimeApi.Infrastructure.Context;
+using AnimeApi.Infrastructure.Repositories;
+using AnimesApi.Domain.Interfaces;
 
 namespace AlunosApi.Repositories
 {

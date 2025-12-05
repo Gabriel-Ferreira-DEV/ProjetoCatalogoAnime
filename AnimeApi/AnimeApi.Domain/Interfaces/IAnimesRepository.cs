@@ -1,6 +1,6 @@
 ﻿using AnimeApi.Entities;
 
-namespace AnimesApi.Repositories
+namespace AnimesApi.Domain.Interfaces
 {
     public interface IAnimesRepository
     {

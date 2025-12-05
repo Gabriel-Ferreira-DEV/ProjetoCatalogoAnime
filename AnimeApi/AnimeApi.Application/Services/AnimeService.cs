@@ -2,12 +2,12 @@
 
 using AnimeApi.Application.Interfaces;
 using AnimeApi.DTOs;
-using AnimesApi.Repositories;
+using AnimesApi.Domain.Interfaces;
 using AutoMapper;
 
 namespace AnimeApi.Application.Services
 {
-    internal class AnimeService : IAnimesService
+    public class AnimeService : IAnimesService
     {
         private IAnimesRepository _animesRepository;
         private readonly IMapper _mapper;

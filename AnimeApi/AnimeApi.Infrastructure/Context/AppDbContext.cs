@@ -1,7 +1,7 @@
 ﻿using AnimeApi.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace AnimeApi.Context
+namespace AnimeApi.Infrastructure.Context
 {
     public class AppDbContext : DbContext
     {

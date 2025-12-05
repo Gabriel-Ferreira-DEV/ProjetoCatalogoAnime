@@ -1,8 +1,10 @@
-﻿using AnimeApi.Context;
-using AnimeApi.Model;
+﻿
+using AnimeApi.Entities;
+using AnimeApi.Infrastructure.Context;
+using AnimesApi.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace AnimesApi.Repositories
+namespace AnimeApi.Infrastructure.Repositories
 {
     public class AnimesRepository : IAnimesRepository
     {
@@ -13,7 +15,7 @@ namespace AnimesApi.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Anime>> GetAnimes(CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<Anime>> GetAnimesAsync(CancellationToken cancellationToken = default)
         {
             return await _context.Animes
                 .Include(a => a.Plataforma)
@@ -21,7 +23,7 @@ namespace AnimesApi.Repositories
                 .ToListAsync(cancellationToken);
         }
 
-        public async Task<Anime?> GetAnime(int id, CancellationToken cancellationToken = default)
+        public async Task<Anime?> GetAnimeAsync(int id, CancellationToken cancellationToken = default)
         {
             return await _context.Animes
                 .Include(a => a.Plataforma)
@@ -29,13 +31,5 @@ namespace AnimesApi.Repositories
                 .FirstOrDefaultAsync(a => a.Id == id, cancellationToken);
         }
 
-        public async Task<IEnumerable<Anime>> GetAnimesByPlataforma(int plataformaId, CancellationToken cancellationToken = default)
-        {
-            return await _context.Animes
-                .Where(a => a.PlataformaId == plataformaId)
-                .Include(a => a.Plataforma)
-                .AsNoTracking()
-                .ToListAsync(cancellationToken);
-        }
     }
 }

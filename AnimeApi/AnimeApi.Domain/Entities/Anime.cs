@@ -5,12 +5,13 @@ namespace AnimeApi.Entities
 {
     public class Anime : Entity
     {
-        public string Titulo { get; private set; } = "";
-        public string Descricao { get; private set; } = "";
-        public string ImagemNome { get; private set; } = "";
-        public int PlataformaId { get; private set; }
-        public Plataforma Plataforma { get; private set; } = null!;
+        public string Titulo { get; set; } = "";
+        public string Descricao { get; set; } = "";
+        public string ImagemNome { get; set; } = "";
+        public int PlataformaId { get; set; }
+        public Plataforma Plataforma { get; set; } = null!;
 
+        public Anime() { }
 
         public Anime(string titulo, string descricao, string imagemNome, int plataformaId)
         {

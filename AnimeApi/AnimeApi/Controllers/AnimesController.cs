@@ -1,6 +1,6 @@
 ﻿using AnimeApi.DTOs;
 using AnimeApi.Entities;
-using AnimesApi.Repositories;
+using AnimesApi.Domain.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 

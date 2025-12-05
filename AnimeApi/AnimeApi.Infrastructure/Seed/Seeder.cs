@@ -1,5 +1,5 @@
-﻿using AnimeApi.Context;
-using AnimeApi.Entities;
+﻿using AnimeApi.Entities;
+using AnimeApi.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace AnimeApi.Infrastructure.Seed

@@ -1,9 +1,9 @@
-using AnimeApi.Context;
 using AnimeApi.DTOs.Mappins;
 using AnimeApi.Infrastructure.Seed;
 using AlunosApi.Repositories;
-using AnimesApi.Repositories;
 using Microsoft.EntityFrameworkCore;
+using AnimeApi.Infrastructure.Context;
+using AnimesApi.Domain.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
